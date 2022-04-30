@@ -1,0 +1,33 @@
+{
+  "name": "fuel-calculator",
+  "version": "0.0.1",
+  "description": "Super simple vehicle fuel / gasoline cost calculator.",
+  "main": "index.js",
+  "scripts": {
+    "watch": "npx parcel src/index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://aaronmeder@github.com/aaronmeder/fuel-calculator.git"
+  },
+  "keywords": [
+    "fuel",
+    "cost",
+    "calculator",
+    "car",
+    "gasoline",
+    "petrol",
+    "webapp",
+    "app"
+  ],
+  "author": "Aaron Meder",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aaronmeder/fuel-calculator/issues"
+  },
+  "homepage": "https://github.com/aaronmeder/fuel-calculator#readme",
+  "devDependencies": {
+    "parcel": "^2.5.0"
+  }
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fuel Cost Calculator</title>
+  </head>
+  <body>
+    <div class="app">
+      <header><h1>FCC 🚗</h1></header>
+
+      <section id="calculation" class="calculation">
+        <form>
+          <p>
+            <label for="distance">Distance</label>
+            <input
+              type="number"
+              name="distance"
+              inputmode="numeric"
+              value="50"
+            />
+          </p>
+        </form>
+      </section>
+
+      <section id="result" class="result">
+        <h2>Benzinkosten</h2>
+        <p>
+          <span class="result__currency">CHF</span>
+          <span class="result__value">13.20</span>
+        </p>
+        <p class="meta">
+          <span class="meta__usage">bei 7.5l / 100km Verbrauch</span>
+          <spab class="meta__cost">und 1.95 CHF / Liter Benzin.</spab>
+        </p>
+      </section>
+
+      <footer>
+        <button class="settings btn btn--icon">⚙️</button>
+        <button class="settings btn btn--icon">ℹ️</button>
+      </footer>
+    </div>
+  </body>
+</html>
