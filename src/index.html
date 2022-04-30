@@ -5,20 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fuel Cost Calculator</title>
+    <script src="index.js" type="module"></script>
   </head>
   <body>
-    <div class="app">
-      <header><h1>FCC 🚗</h1></header>
+    <div class="app" x-data="appData()">
+      <header>
+        <h1>🚗 + ⛽ = 💰</h1>
+      </header>
 
       <section id="calculation" class="calculation">
         <form>
           <p>
-            <label for="distance">Distance</label>
+            <label for="distance">Distanz</label>
             <input
               type="number"
               name="distance"
               inputmode="numeric"
-              value="50"
+              x-model="distance"
             />
           </p>
         </form>
@@ -28,11 +31,19 @@
         <h2>Benzinkosten</h2>
         <p>
           <span class="result__currency">CHF</span>
-          <span class="result__value">13.20</span>
+          <span class="result__value" x-text="calculate()">13.20</span>
         </p>
         <p class="meta">
-          <span class="meta__usage">bei 7.5l / 100km Verbrauch</span>
-          <spab class="meta__cost">und 1.95 CHF / Liter Benzin.</spab>
+          <span class="meta__usage"
+            >bei
+            <span class="dynamic-value" x-text="usagePerHundretKm">7.5</span>l /
+            100km Verbrauch</span
+          >
+          <spab class="meta__cost"
+            >und CHF
+            <span class="dynamic-value" x-text="costPerLiter">1.95</span>
+            pro Liter Benzin.</spab
+          >
         </p>
       </section>
 

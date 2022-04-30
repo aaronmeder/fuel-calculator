@@ -29,5 +29,8 @@
   "homepage": "https://github.com/aaronmeder/fuel-calculator#readme",
   "devDependencies": {
     "parcel": "^2.5.0"
+  },
+  "dependencies": {
+    "alpinejs": "^3.10.2"
   }
 }
