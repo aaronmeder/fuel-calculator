@@ -1,0 +1,55 @@
+name: Deployment
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy-app:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 100
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+
+      - uses: marceloprado/has-changed-path@v1
+        id: app-changed
+        with:
+          paths: src
+
+      - name: Install app dependencies
+        if: steps.app-changed.outputs.changed == 'true'
+        run: |
+          cd src
+          npm install
+
+      - name: Build frontend
+        if: steps.app-changed.outputs.changed == 'true'
+        run: |
+          cd src
+          npm run build
+
+      - name: Deploy app
+        if: steps.app-changed.outputs.changed == 'true'
+        env:
+          destPath: "telltecc@telltec.ch:/home/telltecc/public_html/fuel-calcualator/"
+          repoPath: "./dist/"
+        run: |
+          echo "${{secrets.DEPLOY_KEY}}" > deploy_key
+          chmod 600 ./deploy_key
+          rsync -chav --delete \
+            -e 'ssh -i ./deploy_key -o StrictHostKeyChecking=no' \
+            --exclude deploy_key \
+            --exclude .git/ \
+            --exclude .github/ \
+            --exclude node_modules/ \
+            --exclude .cache/ \
+            --exclude parcel-cache/ \
+            ${{env.repoPath}} ${{env.destPath}}

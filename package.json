@@ -2,9 +2,10 @@
   "name": "fuel-calculator",
   "version": "0.0.1",
   "description": "Super simple vehicle fuel / gasoline cost calculator.",
-  "main": "index.js",
+  
   "scripts": {
-    "watch": "npx parcel src/index.html",
+    "build": "npx parcel build src/index.html",
+    "watch": "npx parcel",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
