@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fuel Cost Calculator</title>
     <script src="index.js" type="module"></script>
+
+    <link rel="stylesheet" href="index.scss" />
   </head>
   <body>
     <div class="app" x-data="appData()">
@@ -13,9 +15,9 @@
         <h1>🚗 + ⛽ = 💰</h1>
       </header>
 
-      <section id="calculation" class="calculation">
-        <form>
-          <p>
+      <main>
+        <section id="calculation" class="calculation">
+          <form>
             <label for="distance">Distanz</label>
             <input
               type="number"
@@ -23,29 +25,34 @@
               inputmode="numeric"
               x-model="distance"
             />
-          </p>
-        </form>
-      </section>
+          </form>
+        </section>
 
-      <section id="result" class="result">
-        <h2>Benzinkosten</h2>
-        <p>
-          <span class="result__currency">CHF</span>
-          <span class="result__value" x-text="calculate()">13.20</span>
-        </p>
-        <p class="meta">
-          <span class="meta__usage"
-            >bei
-            <span class="dynamic-value" x-text="usagePerHundretKm">7.5</span>l /
-            100km Verbrauch</span
-          >
-          <spab class="meta__cost"
-            >und CHF
-            <span class="dynamic-value" x-text="costPerLiter">1.95</span>
-            pro Liter Benzin.</spab
-          >
-        </p>
-      </section>
+        <section id="result" class="result">
+          <div class="result__title">
+            <span class="result__label">Benzin kostet</span>
+            <span class="result__cost">
+              <span class="result__currency">CHF</span>
+              <span class="result__value" x-text="calculate()">13.20</span>
+            </span>
+          </div>
+          <div class="meta">
+            <span class="meta__usage"
+              >bei
+              <span class="dynamic-value"
+                ><span class="value" x-text="usagePerHundretKm">7.5</span>l /
+                100km Verbrauch</span
+              >
+              <span class="meta__cost"
+                >und <span class="dynamic-value">CHF
+                <span class="value" x-text="costPerLiter">1.95</span>
+                pro Liter</span
+              >
+              Benzin.</span
+            >
+          </div>
+        </section>
+      </main>
 
       <footer>
         <button class="settings btn btn--icon">⚙️</button>

@@ -1,11 +1,6 @@
-/* function data() {
-  return {
-    distance: 33,
-  };
-} */
-
 import Alpine from "alpinejs";
 
+// Define App Data
 function appData() {
   return {
     distance: 32,
@@ -22,7 +17,7 @@ function appData() {
   };
 }
 
+// Load Alpine
 window.appData = appData;
-
 window.Alpine = Alpine;
 Alpine.start();
