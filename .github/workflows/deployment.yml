@@ -39,7 +39,7 @@ jobs:
       - name: Deploy app
         if: steps.app-changed.outputs.changed == 'true'
         env:
-          destPath: "telltecc@telltec.ch:/home/telltecc/public_html/fuel-calcualator/"
+          destPath: "${{secrets.DEPLOY_DEST_PATH}}"
           repoPath: "./dist/"
         run: |
           echo "${{secrets.DEPLOY_KEY}}" > deploy_key
